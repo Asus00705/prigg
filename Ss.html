@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение в кино</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            flex-direction: column;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, #question {
+            color: #333;
+        }
+        .buttons, .movies {
+            margin-top: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        .yes {
+            background-color: #28a745;
+            color: white;
+        }
+        .no {
+            background-color: #dc3545;
+            color: white;
+            position: absolute;
+        }
+        .movies {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+        .movie {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            background: #007bff;
+            color: white;
+            width: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="question">Диана, пойдем в кино, согласна?</h1>
+        <div class="buttons" id="buttons">
+            <button class="btn yes" onclick="showMovies()">Да</button>
+            <button class="btn no" onmouseover="moveButton(this)">Нет</button>
+        </div>
+        <div class="movies" id="movies">
+            <div class="movie" onclick="sendMovie('Настоящая боль')">Настоящая боль <br> Драма, комедия</div>
+            <div class="movie" onclick="sendMovie('Жеті гүл')">Жеті гүл <br> Комедия, лирика</div>
+            <div class="movie" onclick="sendMovie('Особо опасный пассажир')">Особо опасный пассажир <br> Триллер</div>
+            <div class="movie" onclick="sendMovie('Бабушка на миллион')">Бабушка на миллион <br> Драма, комедия</div>
+            <div class="movie" onclick="sendMovie('Молда')">Молда <br> комедия</div>
+            <div class="movie" onclick="sendMovie('Болмаған балалық шақ')">Болмаған балалық шақ<br> драма</div>
+            <div class="movie" onclick="sendMovie('Оставь это ветру')">Оставь это ветру<br> комедия, мелодрама</div>
+            <div class="movie" onclick="sendMovie('Кімге керексің?')">Кімге керексің?<br> комедия</div>
+            <div class="movie" onclick="sendMovie('Мертвые не потеют')">Мертвые не потеют<br> черная комедия</div>
+        </div>
+    </div>
+    <script>
+        function moveButton(button) {
+            const x = Math.random() * (window.innerWidth - button.clientWidth);
+            const y = Math.random() * (window.innerHeight - button.clientHeight);
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+        
+        function showMovies() {
+            document.getElementById("movies").style.display = "flex";
+            document.getElementById("question").innerText = "Я даже не сомнвался что ты ответишь ДА) На какой фильм пойдем?";
+            document.getElementById("buttons").style.display = "none";
+        }
+        
+        function sendMovie(movieName) {
+            const message = encodeURIComponent(`Выбранный фильм: ${movieName}`);
+            window.location.href = `https://wa.me/77085004190?text=${message}`;
+        }
+    </script>
+</body>
+</html>
