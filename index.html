@@ -14,6 +14,8 @@
             font-family: Arial, sans-serif;
             text-align: center;
             flex-direction: column;
+            margin: 0;
+            padding: 10px;
         }
         .container {
             background: white;
@@ -21,6 +23,7 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             max-width: 90%;
+            width: 400px;
         }
         h1, #question {
             color: #333;
@@ -28,14 +31,19 @@
         }
         .buttons, .movies {
             margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
         }
         .btn {
-            padding: 10px 20px;
+            padding: 12px 20px;
             font-size: 18px;
             border: none;
             cursor: pointer;
-            margin: 5px;
+            margin: 10px;
             border-radius: 5px;
+            width: 120px;
+            text-align: center;
         }
         .yes {
             background-color: #28a745;
@@ -52,35 +60,39 @@
             align-items: center;
         }
         .movie {
-            padding: 10px;
-            margin: 10px;
+            padding: 12px;
+            margin: 8px;
             border-radius: 5px;
             cursor: pointer;
             background: #007bff;
             color: white;
-            width: 200px;
+            width: 80%;
+            max-width: 300px;
             text-align: center;
         }
+        .selected-text {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-size: 22px;
+            color: #e44d26;
+        }
 
-        /* Адаптивные стили */
-        @media screen and (max-width: 600px) {
-            h1 {
-                font-size: 20px; /* Уменьшение размера заголовка */
-                text-align: center;
-                word-wrap: break-word;
+        /* Адаптация для телефонов */
+        @media (max-width: 480px) {
+            h1, #question {
+                font-size: 20px;
             }
             .btn {
-                font-size: 14px; /* Уменьшение текста на кнопках */
+                width: 100px;
+                font-size: 16px;
                 padding: 10px;
+            }
+            .container {
                 width: 90%;
-                max-width: 300px;
-                margin: 5px auto;
-                display: block;
+                padding: 15px;
             }
             .movie {
+                font-size: 16px;
                 width: 90%;
-                max-width: 250px;
-                font-size: 14px;
             }
         }
     </style>
@@ -114,7 +126,8 @@
         
         function showMovies() {
             document.getElementById("movies").style.display = "flex";
-            document.getElementById("question").innerText = "Я знал, что ты согласишься! Выбирай фильм:";
+            document.getElementById("question").innerHTML = "Я знал, что ты скажешь ДА)<br>Какой фильм выберем?";
+            document.getElementById("question").classList.add("selected-text");
             document.getElementById("buttons").style.display = "none";
         }
         
