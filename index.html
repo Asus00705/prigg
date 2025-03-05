@@ -14,36 +14,26 @@
             font-family: Arial, sans-serif;
             text-align: center;
             flex-direction: column;
-            margin: 0;
-            padding: 10px;
         }
         .container {
             background: white;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 90%;
-            width: 400px;
         }
         h1, #question {
             color: #333;
-            font-size: 24px;
         }
         .buttons, .movies {
             margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
         }
         .btn {
-            padding: 12px 20px;
+            padding: 10px 20px;
             font-size: 18px;
             border: none;
             cursor: pointer;
-            margin: 10px;
+            margin: 5px;
             border-radius: 5px;
-            width: 120px;
-            text-align: center;
         }
         .yes {
             background-color: #28a745;
@@ -60,40 +50,14 @@
             align-items: center;
         }
         .movie {
-            padding: 12px;
-            margin: 8px;
+            padding: 10px;
+            margin: 10px;
             border-radius: 5px;
             cursor: pointer;
             background: #007bff;
             color: white;
-            width: 80%;
-            max-width: 300px;
+            width: 200px;
             text-align: center;
-        }
-        .selected-text {
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            font-size: 22px;
-            color: #e44d26;
-        }
-
-        /* Адаптация для телефонов */
-        @media (max-width: 480px) {
-            h1, #question {
-                font-size: 20px;
-            }
-            .btn {
-                width: 100px;
-                font-size: 16px;
-                padding: 10px;
-            }
-            .container {
-                width: 90%;
-                padding: 15px;
-            }
-            .movie {
-                font-size: 16px;
-                width: 90%;
-            }
         }
     </style>
 </head>
@@ -126,8 +90,7 @@
         
         function showMovies() {
             document.getElementById("movies").style.display = "flex";
-            document.getElementById("question").innerHTML = "Я знал, что ты скажешь ДА)<br>Какой фильм выберем?";
-            document.getElementById("question").classList.add("selected-text");
+            document.getElementById("question").innerText = "На какой фильм пойдем?";
             document.getElementById("buttons").style.display = "none";
         }
         
